@@ -6,8 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
@@ -53,6 +57,28 @@ fun TipsApp() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        Text("Калькулятор чаевых")
 
+        Spacer(modifier = Modifier.height(20.dp))
+
+        OutlinedTextField(
+            value = sum,
+            onValueChange = { newValue ->
+                sum = newValue
+            },
+            label = { Text("Сумма заказа") },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        OutlinedTextField(
+            value = bludo,
+            onValueChange = { newValue ->
+                bludo = newValue
+            },
+            label = { Text("Количество блюд") },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(20.dp))
     }
 }
