@@ -50,6 +50,7 @@ fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
 fun TipsApp() {
     var sum by remember { mutableStateOf("") } // сумма заказа
     var bludo by remember { mutableStateOf("") } // количество блюд
+    var tips by remember { mutableStateOf(0f) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -80,5 +81,11 @@ fun TipsApp() {
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(20.dp))
+        DemoSlider(
+            sliderPosition = tips,
+            onPositionChange = { tips = it }
+        )
+        Text("Чаевые: ${tips.toInt()}%")
+
     }
 }
