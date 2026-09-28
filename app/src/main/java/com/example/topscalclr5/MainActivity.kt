@@ -55,7 +55,7 @@ fun TipsApp() {
     var sum by remember { mutableStateOf("") } // сумма заказа
     var bludo by remember { mutableStateOf("") } // количество блюд
     var tips by remember { mutableStateOf(0f) }
-    var skidka by remember { mutableIntStateOf(1) }
+    var skidka by remember { mutableIntStateOf(0) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -133,5 +133,21 @@ fun TipsApp() {
             Text("10%")
         }
 
+        Spacer(modifier = Modifier.height(20.dp))
+
+        val summa = sum.replace(',', '.').toDoubleOrNull()
+        val countBludo = bludo.toIntOrNull()
+        if (summa != null && summa > 0 && countBludo != null && countBludo > 0) {
+            val total = summa *
+                    (1 - skidka / 100.0) *
+                    (1 + tips / 100.0)
+
+            Text(
+                "Сумма к оплате: ${String.format("%.2f", total)}" // округление до сотых
+            )
+
+        } else {
+            Text("Введите корректные данные")
+        }
     }
 }
