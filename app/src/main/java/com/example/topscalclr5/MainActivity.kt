@@ -106,7 +106,7 @@ fun TipsApp() {
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("Скидка")
+            Text("Скидка: ")
             Spacer(modifier = Modifier.width(10.dp))
             RadioButton(
                 selected = skidka == 3,
