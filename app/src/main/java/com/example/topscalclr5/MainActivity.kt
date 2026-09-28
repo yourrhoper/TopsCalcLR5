@@ -54,8 +54,8 @@ fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
 fun TipsApp() {
     var sum by remember { mutableStateOf("") } // сумма заказа
     var bludo by remember { mutableStateOf("") } // количество блюд
-    var tips by remember { mutableStateOf(0f) }
-    var skidka by remember { mutableIntStateOf(0) }
+    var tips by remember { mutableStateOf(0f) } // чаевые изначально 0
+    var skidka by remember { mutableIntStateOf(0) } // скидка изначально 0
     Column(
         modifier = Modifier
             .fillMaxSize()
